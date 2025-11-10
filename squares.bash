@@ -41,7 +41,7 @@ consectutives_found=0
 #		echo Please enter a positive interger
 #	fi
 	read -p "Please enter an interger for the initial position in the Sequence of Squares: " initial_position
-done
+#done
 #while number_of_squares is not an interger
 	clear
 	echo Initial Position in the Sequence: $initial_position
@@ -108,4 +108,5 @@ do
 	let consectutive_two+=1
 done
 # final results
+
 echo We found $consectutives_found consectutive sums of squares up to $max_value_for_consecutives
