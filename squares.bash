@@ -64,9 +64,9 @@ consectutives_found=0
 # Sequence of Squares
 # make sure first calculated square is odd
 if ((initial_position%2==0)); then
-	let number_to_square=initial_position+1
+	number_to_square=$((initial_position+1))
 else
-	let number_to_square=initial_position
+	number_to_square=$initial_position
 fi
 
 #while we need to find more square numbers
@@ -75,7 +75,7 @@ echo
 echo "------- Sequence of Squares"
 while ((squares_found < number_of_squares))
 do
-	let current_square=number_to_square*number_to_square
+	current_square=$((number_to_square**2))
 #check if it's a factor
 	if ((number_to_factor%current_square==0)); then
 		is_it_factor="IS"
@@ -87,8 +87,8 @@ do
 	echo $current_square $is_it_factor a factor of $number_to_factor
 	echo ------
 #prepare for next iteration of loop
-	let squares_found+=1
-	let number_to_square+=2
+	((squares_found++))
+	number_to_square=$((number_to_square+2))
 done
 
 # Sum of consectutive squares
@@ -98,15 +98,14 @@ echo "------- Sum of Consectutive Squares"
 echo 
 while ((consectutive_sum < max_value_for_consecutives))
 do
-	let consectutive_sum=consectutive_one*consectutive_one+consectutive_two*consectutive_two
+	consectutive_sum=$((consectutive_one**2+consectutive_two**2))
 # ensure we haven't surpased the max value
     if ((consectutive_sum<=max_value_for_consecutives)); then
 		echo $consectutive_sum is the sum of two consectutive squares
-		let consectutives_found+=1
+		((consectutives_found++))
 	fi
-	let consectutive_one+=1
-	let consectutive_two+=1
+	((consectutive_one++))
+	((consectutive_two++))
 done
 # final results
-
 echo We found $consectutives_found consectutive sums of squares up to $max_value_for_consecutives
